@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Land Research and Policy Innovation Platform</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Color Scheme Legend matching Image 1 top specifications -->
+  <div class="gov-color-legend-bar">
+    <div class="legend-swatch navy"><span class="swatch-name">Navy</span><code>#000080</code><span class="swatch-desc">Header, nav, buttons</span></div>
+    <div class="legend-swatch saffron"><span class="swatch-name">Saffron</span><code>#FF9933</code><span class="swatch-desc">Accents, active tab</span></div>
+    <div class="legend-swatch green"><span class="swatch-name">Green</span><code>#138808</code><span class="swatch-desc">Success, approved</span></div>
+    <div class="legend-swatch white"><span class="swatch-name">White</span><code>#FFFFFF</code><span class="swatch-desc">Main surfaces</span></div>
+    <div class="legend-swatch navy-tint"><span class="swatch-name">Navy tint</span><code>#E8E8F5</code><span class="swatch-desc">Section backgrounds</span></div>
+  </div>
+
+  <!-- Indian Flag Tricolor Strip -->
+  <div class="gov-tricolor-bar">
+    <div class="stripe-saffron"></div>
+    <div class="stripe-white"></div>
+    <div class="stripe-green"></div>
+  </div>
+
+  <!-- Utility / Accessibility Strip (Image 1) -->
+  <div class="dash-utility-bar">
+    <div class="dash-utility-container">
+      <div class="dash-utility-left">
+        <a href="../#home" class="btn-return-portal">← Back to BhumiNexus Overview</a>
+        <span class="dot">·</span>
+        <span>Skip to main content</span>
+        <span class="dot">·</span>
+        <span>Screen reader access</span>
+      </div>
+      <div class="dash-utility-right">
+        <span class="font-scales">A- A A+</span>
+        <span class="pipe">|</span>
+        <span class="lang-link">हिन्दी</span>
+        <span class="pipe">|</span>
+        <span class="lang-link active">English</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Official Government Header (Image 1) -->
+  <header class="dash-official-header">
+    <div class="dash-header-container">
+      <div class="dash-brand">
+        <div class="dash-emblem-box">
+          <svg width="40" height="48" viewBox="0 0 100 120" fill="currentColor">
+            <circle cx="50" cy="28" r="14" />
+            <circle cx="30" cy="30" r="11" />
+            <circle cx="70" cy="30" r="11" />
+            <path d="M34 40 L66 40 L62 65 L38 65 Z" />
+            <rect x="22" y="66" width="56" height="12" rx="2" />
+            <circle cx="50" cy="72" r="5" fill="#FFFFFF" />
+            <path d="M28 80 C28 80, 36 94, 50 94 C64 94, 72 80, 72 80 Z" />
+            <rect x="20" y="96" width="60" height="5" rx="1.5" />
+          </svg>
+        </div>
+        <div class="dash-title-wrap">
+          <h1 class="dash-main-title">National Land Research and Policy Innovation Platform</h1>
+          <p class="dash-hindi-subtitle">राष्ट्रीय भूमि अनुसंधान एवं नीति नवाचार मंच · [Ministry of Rural Development / Department of Land Resources]</p>
+        </div>
+      </div>
+
+      <div class="dash-actions">
+        <button class="btn-dash-signin">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Sign In</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Content (Image 1 Layout) -->
+  <main class="dash-main-content">
+    
+    <!-- Search Section (Navy Tint #E8E8F5) -->
+    <section class="dash-search-section">
+      <div class="dash-search-container">
+        <h2 class="dash-search-heading">Find research, policy papers, and datasets</h2>
+        
+        <div class="dash-search-input-box">
+          <input type="text" id="search-input" placeholder="Try: farmland conversion near cities" value="Try: farmland conversion near cities">
+          <button class="dash-search-submit-btn" id="search-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search</span>
+          </button>
+        </div>
+
+        <div class="dash-filter-pills-row">
+          <button class="dash-pill-btn active" data-filter="Land records">Land records</button>
+          <button class="dash-pill-btn" data-filter="Climate risk">Climate risk</button>
+          <button class="dash-pill-btn" data-filter="Urban expansion">Urban expansion</button>
+          <button class="dash-pill-btn" data-filter="Land disputes">Land disputes</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Core Module Cards (Image 1) -->
+    <section class="dash-modules-section">
+      <div class="dash-modules-grid">
+        
+        <div class="dash-module-card">
+          <div class="module-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="module-text-wrap">
+            <h3 class="module-title">Repository</h3>
+            <p class="module-description">Papers, datasets, legal documents</p>
+          </div>
+        </div>
+
+        <div class="dash-module-card">
+          <div class="module-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="module-text-wrap">
+            <h3 class="module-title">Workspaces</h3>
+            <p class="module-description">Work across departments</p>
+          </div>
+        </div>
+
+        <div class="dash-module-card">
+          <div class="module-icon-box map-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          </div>
+          <div class="module-text-wrap">
+            <h3 class="module-title">Map explorer</h3>
+            <p class="module-description">Land use and climate layers</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Policy Indicators (Image 1 exact values & styling) -->
+    <section class="dash-policy-section">
+      <div class="policy-section-header">
+        <h3 class="policy-title">Policy indicators</h3>
+        <span class="sample-data-label">Sample data</span>
+      </div>
+
+      <div class="policy-indicators-grid">
+        
+        <div class="policy-card">
+          <span class="indicator-label">Records digitised</span>
+          <div class="indicator-value-row">
+            <span class="indicator-big-number">94%</span>
+          </div>
+          <div class="indicator-status-pill pill-on-track">
+            <span>✓ On track</span>
+          </div>
+          <div class="indicator-progress-bar">
+            <div class="progress-fill green-fill" style="width: 94%;"></div>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <span class="indicator-label">Open land disputes</span>
+          <div class="indicator-value-row">
+            <span class="indicator-big-number">38,500</span>
+          </div>
+          <div class="indicator-status-pill pill-needs-attention">
+            <span>⚠ Needs attention</span>
+          </div>
+          <div class="indicator-subtext">Special Lok Adalat tribunal initiated</div>
+        </div>
+
+        <div class="policy-card">
+          <span class="indicator-label">Pilot projects</span>
+          <div class="indicator-value-row">
+            <span class="indicator-big-number">27</span>
+          </div>
+          <div class="indicator-status-pill pill-active">
+            <span>⚡ Active</span>
+          </div>
+          <div class="indicator-subtext">SRISHTI-DRISHTI Satellite parcel validation</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Official Footer (Image 1) -->
+  <footer class="dash-footer">
+    <div class="dash-footer-container">
+      <div class="footer-left-info">
+        <span class="last-updated-text">Last updated: 20 Sep 2026</span>
+      </div>
+      <div class="footer-right-links">
+        <a href="#accessibility" class="footer-link">Accessibility statement</a>
+        <span class="dot">·</span>
+        <a href="#terms" class="footer-link">Terms of use</a>
+        <span class="dot">·</span>
+        <a href="#contact" class="footer-link">Contact us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
