@@ -1,6 +1,5 @@
 import React from 'react';
 import { NationalEmblem } from './Emblem';
-import { Lock, BookOpen } from 'lucide-react';
 
 export function TopNav({
   activePage,
@@ -95,16 +94,12 @@ export function TopNav({
           
           {/* Emblem & Branding */}
           <div className="dash-brand" onClick={() => onNavigate('home')} role="button" tabIndex={0}>
-            <div className="dash-emblem-box">
-              <NationalEmblem size={44} className="emblem-navy" />
-            </div>
+            <NationalEmblem size={44} className="emblem-svg" />
 
             <div className="dash-title-wrap">
-              <div className="title-top-row">
-                <h1 className="dash-main-title">
-                  BhumiNexus
-                </h1>
-              </div>
+              <h1 className="dash-main-title">
+                BhumiNexus
+              </h1>
               <p className="dash-hindi-subtitle">
                 राष्ट्रीय भूमि अनुसंधान एवं नीति नवाचार मंच · National Land Research & Policy Innovation Platform
               </p>
@@ -121,8 +116,7 @@ export function TopNav({
               onClick={onOpenUserManual}
               title="View Project Brief & Evaluator Guide"
             >
-              <BookOpen size={15} />
-              <span>Evaluator Guide</span>
+              Evaluator Guide
             </button>
 
             <button
@@ -130,8 +124,7 @@ export function TopNav({
               onClick={onOpenSignIn}
               title="Official Department Login"
             >
-              <Lock size={15} />
-              <span>Officer Sign In</span>
+              Officer Sign In
             </button>
           </div>
 

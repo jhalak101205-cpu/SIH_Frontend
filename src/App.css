@@ -7,23 +7,29 @@
    1. Single Unified Government Header & Navbar
    -------------------------------------------------------------------------- */
 .gov-single-header {
-  position: sticky;
-  top: 0;
-  z-index: 60;
   background-color: var(--gov-white);
-  box-shadow: 0 4px 12px rgba(0, 0, 80, 0.08);
 }
 
-/* Accessibility & Language Strip (Image 1 style) */
+/* 1. Indian Tricolor Ribbon */
+.gov-tricolor-bar {
+  display: flex;
+  height: 4px;
+  width: 100%;
+}
+.stripe-saffron { flex: 1; background-color: #FF9933; }
+.stripe-white { flex: 1; background-color: #FFFFFF; }
+.stripe-green { flex: 1; background-color: #138808; }
+
+/* 2. Official Government Accessibility & Language Strip */
 .dash-utility-bar {
-  background-color: #f1f3f9;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 5px 24px;
+  background-color: #F1F3F9;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 6px 24px;
   font-size: 0.8125rem;
   color: #374151;
 }
 .dash-utility-container {
-  max-width: 1360px;
+  max-width: 1240px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -35,24 +41,15 @@
   gap: 8px;
 }
 .dash-utility-left .dot {
-  color: #9ca3af;
-}
-.sih-tag-header {
-  color: #c25e00;
-  font-weight: 700;
-  background: #fff7ed;
-  padding: 1px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 153, 51, 0.4);
+  color: #9CA3AF;
 }
 .dash-utility-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 .font-scales-group {
   display: flex;
-  align-items: center;
   gap: 4px;
 }
 .scaler-btn {
@@ -60,16 +57,16 @@
   font-size: 0.75rem;
   font-weight: 700;
   border-radius: 3px;
-  background: #e2e8f0;
-  color: #111;
-  transition: var(--transition-fast);
+  background: #E2E8F0;
+  border: none;
+  cursor: pointer;
 }
-.scaler-btn.active, .scaler-btn:hover {
+.scaler-btn:hover, .scaler-btn.active {
   background: var(--gov-navy);
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .pipe {
-  color: #cbd5e1;
+  color: #CBD5E1;
 }
 .lang-group {
   display: flex;
@@ -77,48 +74,52 @@
   gap: 6px;
 }
 .lang-link {
-  color: var(--gov-navy);
   font-size: 0.8125rem;
-  font-weight: 500;
+  text-decoration: none;
+  color: var(--gov-navy);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 .lang-link.active {
   font-weight: 800;
-  color: #c25e00;
+  color: #D97706;
   text-decoration: underline;
 }
 
-/* Official Government Brand Header (Image 1) */
+/* 3. Official Government Header */
 .dash-official-header {
-  padding: 12px 24px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 14px 24px;
 }
 .dash-header-container {
-  max-width: 1360px;
+  max-width: 1240px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
 }
 .dash-brand {
   display: flex;
   align-items: center;
   gap: 16px;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
+.emblem-svg {
+  width: 44px;
+  height: 48px;
+  color: var(--gov-navy);
+}
 .dash-emblem-box {
-  width: 52px;
-  height: 52px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8fafc;
-}
-.emblem-navy {
-  color: var(--gov-navy);
+  background: transparent;
+  border: none;
 }
 .dash-title-wrap {
   display: flex;
@@ -131,33 +132,23 @@
 }
 .dash-main-title {
   font-size: 1.55rem;
-  font-weight: 800;
+  font-weight: 900;
   color: var(--gov-navy);
-  line-height: 1.15;
   letter-spacing: -0.02em;
-}
-.sih-verified-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #0f5132;
-  background: #eaf6ea;
-  border: 1px solid rgba(19, 136, 8, 0.3);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
+  line-height: 1.1;
+  margin: 0;
 }
 .dash-hindi-subtitle {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #374151;
-  margin-top: 2px;
+  font-size: 0.825rem;
+  color: #4B5563;
+  margin: 2px 0;
+  font-weight: 400;
 }
 .dash-ministry-title {
-  font-size: 0.78rem;
-  color: #64748b;
-  margin-top: 1px;
+  font-size: 0.75rem;
+  color: #6B7280;
+  font-weight: 500;
+  margin: 0;
 }
 .dash-actions {
   display: flex;
@@ -169,40 +160,48 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background-color: var(--gov-saffron);
-  color: #111111;
-  font-size: 0.875rem;
+  background: #FFFFFF;
+  border: 1.5px solid var(--gov-navy);
+  color: var(--gov-navy);
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 700;
-  border-radius: var(--radius-sm);
-  transition: var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
 }
 .btn-manual-header:hover {
-  background-color: var(--gov-saffron-hover);
-  color: #ffffff;
+  background: #EEF2FF;
+  color: var(--gov-navy);
 }
 .btn-dash-signin {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 18px;
-  background-color: var(--gov-navy);
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  transition: var(--transition-fast);
+  padding: 9px 18px;
+  background: var(--gov-navy);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
 .btn-dash-signin:hover {
-  background-color: var(--gov-navy-hover);
+  background: var(--gov-navy-hover);
 }
 
-/* Nav Bar (Solid Navy #000080 with Saffron Active Line) */
+/* 4. Solid Navy Navigation Tabs */
 .dash-nav-bar {
   background-color: var(--gov-navy);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 .dash-nav-container {
-  max-width: 1360px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -213,25 +212,30 @@
   display: flex;
   list-style: none;
   gap: 4px;
-  overflow-x: auto;
+  margin: 0;
+  padding: 0;
 }
 .dash-tab-button {
   position: relative;
   display: block;
-  padding: 13px 22px;
-  color: #ffffff;
+  padding: 14px 22px;
+  color: #FFFFFF;
   font-size: 0.95rem;
   font-weight: 500;
+  text-decoration: none;
   white-space: nowrap;
-  transition: var(--transition-fast);
+  transition: background-color 0.15s ease;
 }
 .dash-tab-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffeedd;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFEEDD;
+  text-decoration: none;
 }
 .dash-tab-button.active {
-  font-weight: 700;
+  font-weight: 800;
   background-color: rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #FFFFFF;
 }
 .dash-saffron-tab-line {
   position: absolute;
@@ -245,18 +249,18 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #c7d2fe;
+  color: #C7D2FE;
   font-size: 0.75rem;
   padding: 4px 10px;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-full);
+  border-radius: 9999px;
 }
 .live-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #10b981;
-  box-shadow: 0 0 6px #10b981;
+  background-color: #10B981;
+  box-shadow: 0 0 6px #10B981;
 }
 
 /* --------------------------------------------------------------------------
