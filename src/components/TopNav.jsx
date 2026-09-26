@@ -1,6 +1,6 @@
 import React from 'react';
 import { NationalEmblem } from './Emblem';
-import { Lock, BookOpen, CheckCircle2 } from 'lucide-react';
+import { Lock, BookOpen } from 'lucide-react';
 
 export function TopNav({
   activePage,
@@ -14,10 +14,14 @@ export function TopNav({
 }) {
   const navTabs = [
     { id: 'home', label: 'Home (Overview)' },
-    { id: 'dashboard', label: 'National Dashboard' },
+    { id: 'repository', label: 'Land Repository' },
     { id: 'api', label: 'API Documentation' },
     { id: 'hackathon', label: 'SIH 2026 Information' }
   ];
+
+  const handleTabClick = (tab) => {
+    onNavigate(tab.id);
+  };
 
   return (
     <header className="gov-single-header" id="top-nav-bar">
@@ -35,8 +39,6 @@ export function TopNav({
             <span className="gov-link">Government of India</span>
             <span className="dot">·</span>
             <span className="screen-text">Screen reader access</span>
-            <span className="dot">·</span>
-            <span className="sih-tag-header">Smart India Hackathon 2026 · Problem SIH26019</span>
           </div>
 
           <div className="dash-utility-right">
@@ -102,10 +104,6 @@ export function TopNav({
                 <h1 className="dash-main-title">
                   BhumiNexus
                 </h1>
-                <span className="sih-verified-badge">
-                  <CheckCircle2 size={13} />
-                  <span>SIH2026 · Team NERO</span>
-                </span>
               </div>
               <p className="dash-hindi-subtitle">
                 राष्ट्रीय भूमि अनुसंधान एवं नीति नवाचार मंच · National Land Research & Policy Innovation Platform
@@ -144,17 +142,55 @@ export function TopNav({
       <nav className="dash-nav-bar" aria-label="Main Navigation">
         <div className="dash-nav-container">
           <ul className="dash-nav-tabs">
-            {navTabs.map((tab) => (
-              <li key={tab.id} className="dash-nav-item">
-                <button
-                  className={`dash-tab-button ${activePage === tab.id ? 'active' : ''}`}
-                  onClick={() => onNavigate(tab.id)}
-                >
-                  {tab.label}
-                  {activePage === tab.id && <div className="dash-saffron-tab-line" />}
-                </button>
-              </li>
-            ))}
+            <li className="dash-nav-item">
+              <a
+                href="/"
+                className={`dash-tab-button ${activePage === 'home' ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('home');
+                }}
+              >
+                Home (Overview)
+                {activePage === 'home' && <div className="dash-saffron-tab-line" />}
+              </a>
+            </li>
+
+            <li className="dash-nav-item">
+              <a
+                href="/land-repository.html"
+                className="dash-tab-button"
+              >
+                Land Repository
+              </a>
+            </li>
+
+            <li className="dash-nav-item">
+              <a
+                href="/api-documentation.html"
+                className="dash-tab-button"
+              >
+                API Documentation
+              </a>
+            </li>
+
+            <li className="dash-nav-item">
+              <a
+                href="#hackathons"
+                className="dash-tab-button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (activePage !== 'home') {
+                    onNavigate('home');
+                  }
+                  setTimeout(() => {
+                    document.getElementById('hackathons')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                SIH 2026 Information
+              </a>
+            </li>
           </ul>
 
           <div className="nav-cloud-pill">

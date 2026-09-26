@@ -79,7 +79,11 @@ export function App() {
       {/* DEDICATED INDIVIDUAL PAGES */}
       <main className="page-content-wrapper">
         {activePage === 'home' && (
-          <HomePage onNavigate={handleNavigate} />
+          <HomePage 
+            onNavigate={handleNavigate}
+            onOpenSignIn={() => setIsSignInOpen(true)}
+            onOpenUserManual={() => setIsUserManualOpen(true)}
+          />
         )}
 
         {activePage === 'dashboard' && (

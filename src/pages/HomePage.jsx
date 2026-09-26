@@ -1,192 +1,257 @@
 import React from 'react';
-import { ArrowRight, LayoutDashboard, Code2, Award, CheckCircle2, ShieldCheck, Database, Layers, Sparkles } from 'lucide-react';
+import { NationalEmblem } from '../components/Emblem';
+import { IsometricDigitalTwin, IsometricGeospatialPlatform } from '../components/IsometricIllustrations';
+import { 
+  BookOpen, Lock, ArrowRight, CheckCircle2, Award
+} from 'lucide-react';
 
-export function HomePage({ onNavigate }) {
-  const metricStats = [
-    { num: '94%', label: 'Records Digitised', desc: 'DILRMP national saturation tracked' },
-    { num: 'SIH26019', label: 'Problem Statement', desc: 'Ministry of Rural Development & DoLR' },
-    { num: '38,500', label: 'Disputes Tracked', desc: 'Special Lok Adalat tribunal data' },
-    { num: 'Zero', label: 'AI Hallucinations', desc: 'Fact-anchored RAG with source citations' },
-  ];
-
+export function HomePage({
+  onOpenSignIn,
+  onOpenUserManual,
+  onNavigate
+}) {
   return (
-    <div className="page-view home-page animate-fade-in">
+    <div className="simple-landing-page">
       
-      {/* 1. Hero Section (Clean, Simple & Non-Overwhelming) */}
-      <section className="home-hero-section">
-        <div 
-          className="hero-background-media"
-          style={{ backgroundImage: `url('/hero_satellite_terrain.jpg')` }}
-          role="img"
-          aria-label="High-resolution satellite view of Indian topography"
-        >
-          <div className="hero-gradient-overlay" />
-        </div>
+      {/* 1. HERO SECTION: Clean, Dignified Project Overview */}
+      <section className="simple-hero-section" id="hero">
+        <div className="simple-container">
+          
 
-        <div className="home-hero-content">
-          <div className="hero-pill-row">
-            <span className="pill-sih">Smart India Hackathon 2026</span>
-            <span className="pill-problem">Problem Statement: SIH26019</span>
-            <span className="pill-dept">Ministry of Rural Development & DoLR</span>
-          </div>
 
-          <h1 className="hero-title">
-            Bhumi<span className="text-nexus">Nexus</span>
-            <span className="hindi-title"> (भूमि नेक्सस)</span>
+          <h1 className="hero-main-title">
+            BhumiNexus
+            <span className="hero-hindi-sub"> (भूमि नेक्सस)</span>
           </h1>
 
-          <h2 className="hero-subtitle">
+          <h2 className="hero-sub-title">
             National Digital Platform for Research, Policy Innovation & Evidence-Based Land Governance
           </h2>
 
-          <p className="hero-description">
-            A centralized, intelligent knowledge-to-policy engine developed for the Department of Land Resources (DoLR).
-            Transforming legacy cadastral records and administrative datasets into clear, evidence-based policy insights.
+          <p className="hero-summary-paragraph">
+            A unified, intelligent knowledge-to-policy engine developed for the <strong>Department of Land Resources (DoLR), Ministry of Rural Development</strong>. 
+            Bridging fragmented cadastral maps and administrative revenue records into actionable policy evaluations with zero hallucinations.
           </p>
 
-          <div className="hero-actions">
-            <button 
-              className="btn-primary-hero"
-              onClick={() => onNavigate('dashboard')}
-            >
-              <span>Explore National Dashboard</span>
+          <div className="hero-buttons-row">
+            <a href="#dual-portals" className="btn-primary-simple">
+              <span>Explore Platform Gateways</span>
               <ArrowRight size={18} />
-            </button>
+            </a>
 
-            <button 
-              className="btn-secondary-hero"
-              onClick={() => onNavigate('hackathon')}
-            >
-              <Award size={18} />
-              <span>SIH 2026 Information</span>
+            <button type="button" className="btn-secondary-simple" onClick={onOpenUserManual}>
+              <BookOpen size={18} />
+              <span>Project Architecture & Manual</span>
             </button>
           </div>
 
-          {/* 4 Key Impact Metric Badges */}
-          <div className="hero-metrics-grid">
-            {metricStats.map((item, idx) => (
-              <div key={idx} className="hero-metric-tile">
-                <span className="tile-num">{item.num}</span>
-                <span className="tile-title">{item.label}</span>
-                <span className="tile-desc">{item.desc}</span>
-              </div>
-            ))}
+          {/* 4 Impact Stat Cards */}
+          <div className="hero-stats-row">
+            <div className="stat-card">
+              <span className="stat-num">94%</span>
+              <span className="stat-label">Records Digitised</span>
+              <span className="stat-sub">National DILRMP saturation</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-num">38,500</span>
+              <span className="stat-label">Disputes Tracked</span>
+              <span className="stat-sub">Special Lok Adalat tribunal</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-num">27</span>
+              <span className="stat-label">Pilot Projects</span>
+              <span className="stat-sub">AI drone parcel validation</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-num">Zero</span>
+              <span className="stat-label">AI Hallucinations</span>
+              <span className="stat-sub">Fact-anchored RAG responses</span>
+            </div>
           </div>
+
         </div>
       </section>
 
-      {/* 2. Project Executive Overview (Simple for Non-Tech Evaluators) */}
-      <section className="home-overview-section">
-        <div className="home-container">
+      {/* 2. DUAL ACCESS PORTAL CARDS (Simple & Intuitive for Judges) */}
+      <section className="simple-portals-section" id="dual-portals">
+        <div className="simple-container">
           
-          <div className="section-header-simple">
-            <span className="section-pill">Executive Project Summary</span>
-            <h2 className="section-heading">Why BhumiNexus Matters for Indian Land Governance</h2>
-            <p className="section-subtext">
-              Built by <strong>Team NERO</strong> to solve the critical gap between raw administrative land data 
-              and actual policy evaluation.
+          <div className="section-title-lockup">
+            <span className="section-pill">Core Access Gateways</span>
+            <h2 className="section-heading">Choose Your Platform Interface</h2>
+            <p className="section-desc">
+              Tailored access models for open public research and secure departmental land administration.
             </p>
           </div>
 
-          {/* Problem vs Solution Comparison */}
-          <div className="problem-solution-grid">
-            <div className="ps-card problem-card">
-              <span className="ps-tag tag-problem">The Core Challenge</span>
-              <h3>Trapped Data & Departmental Silos</h3>
-              <p>
-                India possesses vast volumes of land records (DILRMP, legacy cadastral maps, satellite imagery). 
-                However, data remains trapped in departmental silos. Policymakers and district administrators 
-                lack a unified, evidence-based tool to evaluate policy outcomes or anticipate dispute bottlenecks.
-              </p>
-            </div>
-
-            <div className="ps-card solution-card">
-              <span className="ps-tag tag-solution">The BhumiNexus Solution</span>
-              <h3>Unified Analytical Brain</h3>
-              <p>
-                BhumiNexus bridges raw data with actionable policy decisions through 
-                <strong> AI Semantic Search (RAG)</strong> across policy papers, 
-                <strong> GIS Correlation Layers</strong> linking digitization to dispute decline, and 
-                <strong> Grounded National KPIs</strong> with zero hallucinations.
-              </p>
-            </div>
-          </div>
-
-          {/* 3 Dedicated Page Navigation Cards */}
-          <div className="page-nav-cards-block">
-            <h3 className="nav-cards-header">Explore The Platform Sections</h3>
+          <div className="dual-cards-row">
             
-            <div className="nav-cards-grid">
-              
-              {/* Card 1: National Dashboard */}
-              <div 
-                className="nav-destination-card"
-                onClick={() => onNavigate('dashboard')}
-                role="button"
-                tabIndex={0}
-              >
-                <div className="card-icon-box navy">
-                  <LayoutDashboard size={26} />
-                </div>
-                <div className="card-info">
-                  <span className="card-tag">Page 2</span>
-                  <h4>National Land Dashboard</h4>
-                  <p>
-                    Replication of the official Image 1 government portal with live search, 
-                    filter pills, repository, workspaces, and policy indicators (94% Digitised, 38,500 Disputes).
-                  </p>
-                </div>
-                <span className="card-link-arrow">Open Dashboard &rarr;</span>
+            {/* Card 1: Public Accessing (Digital Twin) */}
+            <div className="portal-box public-box" id="card-public-accessing">
+              <div className="portal-box-top">
+                <span className="portal-tier-pill">Public Accessing</span>
+                <span className="portal-tag-light">Open Citizen & Academic Access</span>
               </div>
 
-              {/* Card 2: REST API Documentation */}
-              <div 
-                className="nav-destination-card"
-                onClick={() => onNavigate('api')}
-                role="button"
-                tabIndex={0}
-              >
-                <div className="card-icon-box saffron">
-                  <Code2 size={26} />
-                </div>
-                <div className="card-info">
-                  <span className="card-tag">Page 3</span>
-                  <h4>REST API & Architecture</h4>
-                  <p>
-                    Clear, plain-English documentation of our FastAPI endpoints: 
-                    AI Semantic Search, GIS Correlation Layers, and Grounded National Governance KPIs.
-                  </p>
-                </div>
-                <span className="card-link-arrow">View API Docs &rarr;</span>
+              <div className="portal-illustration">
+                <IsometricDigitalTwin className="portal-svg" />
               </div>
 
-              {/* Card 3: Hackathon Info */}
-              <div 
-                className="nav-destination-card"
-                onClick={() => onNavigate('hackathon')}
-                role="button"
-                tabIndex={0}
-              >
-                <div className="card-icon-box green">
-                  <Award size={26} />
-                </div>
-                <div className="card-info">
-                  <span className="card-tag">Page 4</span>
-                  <h4>SIH 2026 Information</h4>
-                  <p>
-                    Complete details on Problem Statement SIH26019, Department of Land Resources (DoLR) 
-                    pipeline alignment, Team NERO details, and evaluator assessment criteria.
-                  </p>
-                </div>
-                <span className="card-link-arrow">Read SIH Brief &rarr;</span>
-              </div>
+              <div className="portal-content">
+                <h3 className="portal-title">Public Analysis System</h3>
+                <p className="portal-desc">
+                  Open digital twin for citizens, researchers, and planners to evaluate spatial trends and land indicators without login.
+                </p>
 
+                <ul className="portal-checklist">
+                  <li>
+                    <CheckCircle2 size={16} className="check-icon" />
+                    <span>Land use information at scale (DILRMP records)</span>
+                  </li>
+                  <li>
+                    <CheckCircle2 size={16} className="check-icon" />
+                    <span>Analyze historical digitisation & dispute decline trends</span>
+                  </li>
+                  <li>
+                    <CheckCircle2 size={16} className="check-icon" />
+                    <span>Public policy simulations & open geospatial datasets</span>
+                  </li>
+                </ul>
+
+                <a 
+                  href="/land-repository.html" 
+                  className="btn-portal-action public-btn"
+                >
+                  <span>Enter Public Analysis System</span>
+                  <ArrowRight size={18} />
+                </a>
+              </div>
             </div>
+
+            {/* Card 2: Authorized Workspace (Geospatial Platform) */}
+            <div className="portal-box authorized-box" id="card-authorized-workspace">
+              <div className="portal-box-top">
+                <span className="portal-tier-pill auth-pill">Authorized Workspace</span>
+                <span className="portal-tag-light">Departmental Clearance Level-3</span>
+              </div>
+
+              <div className="portal-illustration">
+                <IsometricGeospatialPlatform className="portal-svg" />
+              </div>
+
+              <div className="portal-content">
+                <h3 className="portal-title">Authorized Geospatial Workbench</h3>
+                <p className="portal-desc">
+                  Restricted operations suite for Revenue Officers, District Collectors, and Tahsildars with Jan Parichay Single Sign-On.
+                </p>
+
+                <ul className="portal-checklist">
+                  <li>
+                    <CheckCircle2 size={16} className="check-icon saffron" />
+                    <span>Interactive cadastral mapping & high-res parcel overlays</span>
+                  </li>
+                  <li>
+                    <CheckCircle2 size={16} className="check-icon saffron" />
+                    <span>Inter-departmental joint land acquisition rooms</span>
+                  </li>
+                  <li>
+                    <CheckCircle2 size={16} className="check-icon saffron" />
+                    <span>Temporal dispute SLA monitoring & tribunal registries</span>
+                  </li>
+                </ul>
+
+                <button 
+                  type="button" 
+                  className="btn-portal-action authorized-btn"
+                  onClick={onOpenSignIn}
+                >
+                  <Lock size={16} />
+                  <span>Access Authorized Workspace</span>
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
+
+
+
+
+
+      {/* 5. SIH 2026 PROBLEM STATEMENT BRIEF */}
+      <section className="simple-sih-section" id="hackathons">
+        <div className="simple-container">
+          
+          <div className="sih-brief-card">
+            <div className="sih-brief-header">
+              <div className="badge-wrap">
+                <Award size={18} className="award-icon" />
+                <span>Smart India Hackathon 2026 · Official Submission</span>
+              </div>
+              <span className="problem-id-tag">Problem Statement: SIH26019</span>
+            </div>
+
+            <h3 className="sih-title">
+              BhumiNexus: National Land Research & Policy Innovation Platform
+            </h3>
+
+            <p className="sih-sub">
+              "A one-stop platform for discovering, joining, collaborating, submitting, and tracking land-governance hackathons and innovations."
+            </p>
+
+            <div className="sih-specs-row">
+              <div className="spec-col">
+                <span className="spec-label">Nodal Ministry</span>
+                <span className="spec-val">Ministry of Rural Development</span>
+              </div>
+              <div className="spec-col">
+                <span className="spec-label">Department</span>
+                <span className="spec-val">Department of Land Resources (DoLR)</span>
+              </div>
+              <div className="spec-col">
+                <span className="spec-label">Competition Theme</span>
+                <span className="spec-val">Smart Automation / AI & Web GIS</span>
+              </div>
+              <div className="spec-col">
+                <span className="spec-label">Evaluation Stage</span>
+                <span className="spec-val">Grand Finale Submission</span>
+              </div>
+            </div>
+
+            <div className="sih-deliverables-box">
+              <h4>Key Evaluator Scoring Deliverables:</h4>
+              <div className="deliverables-grid">
+                <div className="deliv-item">
+                  <CheckCircle2 size={16} className="check-green" />
+                  <span><strong>Zero AI Hallucination:</strong> Grounded RAG strictly cites DILRMP policy frameworks and circulars.</span>
+                </div>
+                <div className="deliv-item">
+                  <CheckCircle2 size={16} className="check-green" />
+                  <span><strong>Empirical Spatial Correlation:</strong> Proves dispute decline mathematically across 766 districts.</span>
+                </div>
+                <div className="deliv-item">
+                  <CheckCircle2 size={16} className="check-green" />
+                  <span><strong>Evidence-Based Policy Simulator:</strong> "What-if" sandbox forecasts budget savings before rollout.</span>
+                </div>
+                <div className="deliv-item">
+                  <CheckCircle2 size={16} className="check-green" />
+                  <span><strong>GIGW 3.0 & Data Sovereignty:</strong> Standardized, bilingual, accessible Indian Government design.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
 
     </div>
   );
 }
+
+export default HomePage;

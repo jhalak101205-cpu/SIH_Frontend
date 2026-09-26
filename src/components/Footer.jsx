@@ -2,7 +2,7 @@ import React from 'react';
 import { NationalEmblem } from './Emblem';
 import { Shield, ExternalLink, Mail, MapPin, Award } from 'lucide-react';
 
-export function Footer() {
+export function Footer({ onNavigate }) {
   return (
     <footer className="gov-official-footer" id="contact">
       {/* Indian Tricolor Ribbon */}
@@ -37,11 +37,26 @@ export function Footer() {
           <div className="footer-col">
             <h4 className="footer-col-title">Platform Portals</h4>
             <ul className="footer-link-list">
-              <li><a href="#portal-selector-section">Public Analysis System</a></li>
-              <li><a href="#portal-selector-section">Authorized Workspace Demo</a></li>
-              <li><a href="#dashboard-preview-section">National Land Dashboard</a></li>
-              <li><a href="#simulator">Predictive Policy Simulator</a></li>
-              <li><a href="#api-docs">REST API Documentation</a></li>
+              <li>
+                <a href="#home" onClick={(e) => { e.preventDefault(); onNavigate?.('home'); }}>
+                  Home (Overview)
+                </a>
+              </li>
+              <li>
+                <a href="/land-repository.html">
+                  National Land Repository
+                </a>
+              </li>
+              <li>
+                <a href="#api" onClick={(e) => { e.preventDefault(); onNavigate?.('api'); }}>
+                  REST API Documentation
+                </a>
+              </li>
+              <li>
+                <a href="#hackathon" onClick={(e) => { e.preventDefault(); onNavigate?.('hackathon'); }}>
+                  SIH 2026 Information
+                </a>
+              </li>
             </ul>
           </div>
 
