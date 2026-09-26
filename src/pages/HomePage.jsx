@@ -160,15 +160,16 @@ export function HomePage({
                   </li>
                 </ul>
 
-                <button 
-                  type="button" 
+                <a 
+                  href="http://192.168.88.2:3001" 
                   className="btn-portal-action authorized-btn"
-                  onClick={onOpenSignIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Lock size={16} />
                   <span>Access Authorized Workspace</span>
                   <ArrowRight size={18} />
-                </button>
+                </a>
               </div>
             </div>
 
