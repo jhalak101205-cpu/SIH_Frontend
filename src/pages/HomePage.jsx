@@ -2,7 +2,7 @@ import React from 'react';
 import { NationalEmblem } from '../components/Emblem';
 import { IsometricDigitalTwin, IsometricGeospatialPlatform } from '../components/IsometricIllustrations';
 import { 
-  BookOpen, Lock, ArrowRight, CheckCircle2, Award
+  BookOpen, Lock, ArrowRight, CheckCircle2
 } from 'lucide-react';
 
 export function HomePage({
@@ -178,75 +178,6 @@ export function HomePage({
       </section>
 
 
-
-
-
-      {/* 5. SIH 2026 PROBLEM STATEMENT BRIEF */}
-      <section className="simple-sih-section" id="hackathons">
-        <div className="simple-container">
-          
-          <div className="sih-brief-card">
-            <div className="sih-brief-header">
-              <div className="badge-wrap">
-                <Award size={18} className="award-icon" />
-                <span>Smart India Hackathon 2026 · Official Submission</span>
-              </div>
-              <span className="problem-id-tag">Problem Statement: SIH26019</span>
-            </div>
-
-            <h3 className="sih-title">
-              BhumiNexus: National Land Research & Policy Innovation Platform
-            </h3>
-
-            <p className="sih-sub">
-              "A one-stop platform for discovering, joining, collaborating, submitting, and tracking land-governance hackathons and innovations."
-            </p>
-
-            <div className="sih-specs-row">
-              <div className="spec-col">
-                <span className="spec-label">Nodal Ministry</span>
-                <span className="spec-val">Ministry of Rural Development</span>
-              </div>
-              <div className="spec-col">
-                <span className="spec-label">Department</span>
-                <span className="spec-val">Department of Land Resources (DoLR)</span>
-              </div>
-              <div className="spec-col">
-                <span className="spec-label">Competition Theme</span>
-                <span className="spec-val">Smart Automation / AI & Web GIS</span>
-              </div>
-              <div className="spec-col">
-                <span className="spec-label">Evaluation Stage</span>
-                <span className="spec-val">Grand Finale Submission</span>
-              </div>
-            </div>
-
-            <div className="sih-deliverables-box">
-              <h4>Key Evaluator Scoring Deliverables:</h4>
-              <div className="deliverables-grid">
-                <div className="deliv-item">
-                  <CheckCircle2 size={16} className="check-green" />
-                  <span><strong>Zero AI Hallucination:</strong> Grounded RAG strictly cites DILRMP policy frameworks and circulars.</span>
-                </div>
-                <div className="deliv-item">
-                  <CheckCircle2 size={16} className="check-green" />
-                  <span><strong>Empirical Spatial Correlation:</strong> Proves dispute decline mathematically across 766 districts.</span>
-                </div>
-                <div className="deliv-item">
-                  <CheckCircle2 size={16} className="check-green" />
-                  <span><strong>Evidence-Based Policy Simulator:</strong> "What-if" sandbox forecasts budget savings before rollout.</span>
-                </div>
-                <div className="deliv-item">
-                  <CheckCircle2 size={16} className="check-green" />
-                  <span><strong>GIGW 3.0 & Data Sovereignty:</strong> Standardized, bilingual, accessible Indian Government design.</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
 
 
 

@@ -14,7 +14,7 @@ export function Footer({ onNavigate }) {
 
       <div className="footer-top-container">
         <div className="footer-grid">
-          
+
           {/* Column 1: Ministry & Hackathon Branding */}
           <div className="footer-col brand-col">
             <div className="footer-emblems-row">
@@ -37,26 +37,10 @@ export function Footer({ onNavigate }) {
           <div className="footer-col">
             <h4 className="footer-col-title">Platform Portals</h4>
             <ul className="footer-link-list">
-              <li>
-                <a href="#home" onClick={(e) => { e.preventDefault(); onNavigate?.('home'); }}>
-                  Home (Overview)
-                </a>
-              </li>
-              <li>
-                <a href="/land-repository.html">
-                  National Land Repository
-                </a>
-              </li>
-              <li>
-                <a href="#api" onClick={(e) => { e.preventDefault(); onNavigate?.('api'); }}>
-                  REST API Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#hackathon" onClick={(e) => { e.preventDefault(); onNavigate?.('hackathon'); }}>
-                  SIH 2026 Information
-                </a>
-              </li>
+              <li><a href="/">Home (Overview)</a></li>
+              <li><a href="/land-repository.html">National Land Repository</a></li>
+              <li><a href="/api-documentation.html">REST API Documentation</a></li>
+              <li><a href="/hackathons.html">Hackathon</a></li>
             </ul>
           </div>
 
@@ -64,11 +48,11 @@ export function Footer({ onNavigate }) {
           <div className="footer-col">
             <h4 className="footer-col-title">DoLR Ecosystem</h4>
             <ul className="footer-link-list">
-              <li><a href="#sih-info">SIH26019 Problem Overview</a></li>
-              <li><a href="#sih-info">SIH26018 (Legacy OCR Pipeline)</a></li>
-              <li><a href="#sih-info">SIH26016 (Acquisition SLA Tracker)</a></li>
-              <li><a href="#sih-info">SIH26015 (SRISHTI-DRISHTI Satellite)</a></li>
-              <li><a href="#sih-info">Evaluator Assessment Rubric</a></li>
+              <li><a href="/hackathons.html#sih-statement">SIH26019 Problem Overview</a></li>
+              <li><a href="/hackathons.html">SIH26018 (Legacy OCR Pipeline)</a></li>
+              <li><a href="/hackathons.html">SIH26016 (Acquisition SLA Tracker)</a></li>
+              <li><a href="/hackathons.html">SIH26015 (SRISHTI-DRISHTI Satellite)</a></li>
+              <li><a href="/hackathons.html">Evaluator Assessment Rubric</a></li>
             </ul>
           </div>
 

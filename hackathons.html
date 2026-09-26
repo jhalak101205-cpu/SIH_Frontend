@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon | BhumiNexus</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23000080' stroke='%23FF9933' stroke-width='4'/><circle cx='50' cy='50' r='18' fill='none' stroke='%23ffffff' stroke-width='3'/><path d='M50 4 L50 96 M4 50 L96 50 M17 17 L83 83 M17 83 L83 17' stroke='%23ffffff' stroke-width='2'/></svg>" />
+  <!-- Google Fonts: Inter & Outfit & Noto Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* CSS Variables & Reset - Identical to land-repository.html */
+    :root {
+      --gov-navy: #000080;
+      --gov-navy-hover: #000066;
+      --gov-navy-dark: #061124;
+      --gov-saffron: #F9A90E;
+      --gov-saffron-hover: #E09400;
+      --gov-green: #059669;
+      --gov-bg: #FAF7F2;
+      --gov-white: #FFFFFF;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--gov-bg);
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    /* 1. Indian Tricolor Ribbon */
+    .gov-tricolor-bar {
+      display: flex;
+      height: 4px;
+      width: 100%;
+    }
+
+    .stripe-saffron {
+      flex: 1;
+      background-color: #FF9933;
+    }
+
+    .stripe-white {
+      flex: 1;
+      background-color: #FFFFFF;
+    }
+
+    .stripe-green {
+      flex: 1;
+      background-color: #138808;
+    }
+
+    /* 2. Utility Strip */
+    .dash-utility-bar {
+      background-color: #F1F3F9;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 6px 24px;
+      font-size: 0.8125rem;
+      color: #374151;
+    }
+
+    .dash-utility-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dash-utility-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dash-utility-left .dot {
+      color: #9CA3AF;
+    }
+
+    .dash-utility-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .font-scales-group {
+      display: flex;
+      gap: 4px;
+    }
+
+    .scaler-btn {
+      padding: 2px 7px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 3px;
+      background: #E2E8F0;
+      border: none;
+      cursor: pointer;
+    }
+
+    .scaler-btn:hover,
+    .scaler-btn.active {
+      background: var(--gov-navy);
+      color: #FFFFFF;
+    }
+
+    .pipe {
+      color: #CBD5E1;
+    }
+
+    .lang-link {
+      font-size: 0.8125rem;
+      text-decoration: none;
+      color: var(--gov-navy);
+      cursor: pointer;
+    }
+
+    .lang-link.active {
+      font-weight: 800;
+      color: #D97706;
+      text-decoration: underline;
+    }
+
+    /* 3. Official Government Header */
+    .dash-official-header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 14px 24px;
+    }
+
+    .dash-header-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dash-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .emblem-svg {
+      width: 44px;
+      height: 48px;
+      color: var(--gov-navy);
+    }
+
+    .dash-main-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--gov-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .dash-hindi-subtitle {
+      font-size: 0.825rem;
+      color: #4B5563;
+      margin: 2px 0;
+    }
+
+    .dash-ministry-title {
+      font-size: 0.75rem;
+      color: #6B7280;
+      font-weight: 500;
+    }
+
+    .dash-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-manual-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--gov-navy);
+      color: var(--gov-navy);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-manual-header:hover {
+      background: #EEF2FF;
+    }
+
+    .btn-dash-signin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      background: var(--gov-navy);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .btn-dash-signin:hover {
+      background: var(--gov-navy-hover);
+    }
+
+    /* 4. Solid Navy Navigation Tabs */
+    .dash-nav-bar {
+      background-color: var(--gov-navy);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .dash-nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dash-nav-tabs {
+      display: flex;
+      list-style: none;
+      gap: 4px;
+    }
+
+    .dash-tab-button {
+      position: relative;
+      display: block;
+      padding: 14px 22px;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s ease;
+    }
+
+    .dash-tab-button:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #FFEEDD;
+    }
+
+    .dash-tab-button.active {
+      font-weight: 800;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .dash-saffron-tab-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: var(--gov-saffron);
+    }
+
+    .nav-cloud-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #C7D2FE;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    /* 5. Main Container */
+    .simple-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hackathon-page-section {
+      padding: 48px 0 64px 0;
+    }
+
+    /* 6. SIH Brief Card (Exact Match to User Image) */
+    .sih-brief-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 80, 0.04);
+      margin-bottom: 32px;
+    }
+
+    .sih-brief-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #B45309;
+    }
+
+    .badge-wrap svg {
+      color: #D97706;
+      flex-shrink: 0;
+    }
+
+    .problem-id-tag {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #1E40AF;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      padding: 6px 16px;
+      border-radius: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .sih-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gov-navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .sih-sub {
+      position: relative;
+      padding-left: 18px;
+      font-size: 1.05rem;
+      color: #475569;
+      font-style: italic;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .sih-sub::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      bottom: 2px;
+      width: 4px;
+      background-color: var(--gov-saffron);
+      border-radius: 2px;
+    }
+
+    .sih-specs-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .spec-col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spec-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748B;
+    }
+
+    .spec-val {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gov-navy);
+    }
+
+    /* Deliverables Box */
+    .sih-deliverables-box {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 24px;
+    }
+
+    .sih-deliverables-box h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 16px;
+    }
+
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 24px;
+    }
+
+    .deliv-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    .deliv-item svg {
+      color: #10B981;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .deliv-item strong {
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    /* 7. DoLR Ecosystem Multi-Statement Pipeline */
+    .ecosystem-section-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 32px 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 80, 0.04);
+      margin-bottom: 32px;
+    }
+
+    .ecosystem-section-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--gov-navy);
+      margin-bottom: 8px;
+    }
+
+    .ecosystem-section-card p.lead {
+      font-size: 0.95rem;
+      color: #64748B;
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .pipeline-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pipeline-tag {
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #EEF2FF;
+      color: var(--gov-navy);
+    }
+
+    .pipeline-card h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1E293B;
+    }
+
+    .pipeline-card p {
+      font-size: 0.85rem;
+      color: #64748B;
+      line-height: 1.45;
+    }
+
+    .pipeline-feed {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #B45309;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .pipeline-core-box {
+      background: linear-gradient(135deg, #000080 0%, #001F5C 100%);
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .core-pill {
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--gov-saffron);
+      color: #111827;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .pipeline-core-box h4 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #FFFFFF;
+    }
+
+    .pipeline-core-box p {
+      font-size: 0.9rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+
+    /* Running Government Hackathons Section */
+    .running-hackathons-box {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 80, 0.04);
+      margin-bottom: 32px;
+    }
+
+    .running-header-lockup {
+      margin-bottom: 28px;
+    }
+
+    .running-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #047857;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 10px;
+    }
+
+    .running-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    .running-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--gov-navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .running-desc {
+      font-size: 0.95rem;
+      color: #64748B;
+      line-height: 1.5;
+    }
+
+    .hackathon-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .hackathon-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 80, 0.03);
+    }
+
+    .hackathon-card:hover {
+      border-color: var(--gov-saffron);
+      box-shadow: 0 8px 20px rgba(0, 0, 80, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .hackathon-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .hackathon-ministry-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gov-navy);
+      background: #EEF2FF;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .hackathon-status-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #065F46;
+      background: #D1FAE5;
+      border: 1px solid #6EE7B7;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .hackathon-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .hackathon-card p.hackathon-text {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .hackathon-highlights-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding-top: 12px;
+      border-top: 1px dashed #E2E8F0;
+    }
+
+    .highlight-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1E293B;
+      background: #F1F5F9;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .highlight-pill.gold {
+      background: #FEF3C7;
+      color: #92400E;
+      font-weight: 700;
+    }
+
+    .hackathon-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid #F1F5F9;
+      gap: 12px;
+    }
+
+    .source-tag {
+      font-size: 0.75rem;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-hackathon-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gov-navy);
+      color: #FFFFFF;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-hackathon-action:hover {
+      background: var(--gov-navy-hover);
+    }
+
+    /* 8. Quick Navigation CTA Row */
+    .quick-nav-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn-quick-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gov-saffron);
+      color: #111827;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .btn-quick-primary:hover {
+      background: var(--gov-saffron-hover);
+    }
+
+    .btn-quick-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--gov-navy);
+      border: 1.5px solid var(--gov-navy);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-quick-secondary:hover {
+      background: #EEF2FF;
+    }
+
+    /* 9. Official Footer (Pure White Text on Dark Navy) */
+    .gov-official-footer {
+      background-color: var(--gov-navy-dark);
+      color: #FFFFFF;
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .footer-top-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 50px 24px 36px 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 36px;
+    }
+
+    .footer-brand-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 12px 0 8px 0;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.85rem;
+      color: #F1F5F9;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .sih-team-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(249, 169, 14, 0.18);
+      border: 1px solid var(--gov-saffron);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #FFEEDD;
+    }
+
+    .footer-col-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-link-list a {
+      color: #FFFFFF;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .footer-link-list a:hover {
+      color: var(--gov-saffron);
+      padding-left: 4px;
+    }
+
+    .footer-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      font-size: 0.85rem;
+      color: #F8FAFC;
+      line-height: 1.5;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 18px 24px;
+      font-size: 0.82rem;
+      background: #030814;
+    }
+
+    .footer-bottom-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 900px) {
+      .sih-specs-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .deliverables-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hackathon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Indian Tricolor Ribbon -->
+  <div class="gov-tricolor-bar">
+    <div class="stripe-saffron"></div>
+    <div class="stripe-white"></div>
+    <div class="stripe-green"></div>
+  </div>
+
+  <!-- 2. Accessibility Strip -->
+  <div class="dash-utility-bar">
+    <div class="dash-utility-container">
+      <div class="dash-utility-left">
+        <span>Government of India</span>
+        <span class="dot">·</span>
+        <span>Screen reader access</span>
+      </div>
+      <div class="dash-utility-right">
+        <div class="font-scales-group">
+          <button class="scaler-btn" onclick="document.body.style.fontSize='14px'">A-</button>
+          <button class="scaler-btn active" onclick="document.body.style.fontSize='16px'">A</button>
+          <button class="scaler-btn" onclick="document.body.style.fontSize='18px'">A+</button>
+        </div>
+        <span class="pipe">|</span>
+        <a class="lang-link">हिन्दी</a>
+        <span class="pipe">|</span>
+        <a class="lang-link active">English</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Official Government Header -->
+  <header class="dash-official-header">
+    <div class="dash-header-container">
+      <a href="/" class="dash-brand">
+        <!-- Ashoka Emblem SVG -->
+        <svg class="emblem-svg" viewBox="0 0 100 120" fill="currentColor">
+          <circle cx="50" cy="28" r="14" />
+          <circle cx="30" cy="30" r="11" />
+          <circle cx="70" cy="30" r="11" />
+          <path d="M34 40 L66 40 L62 65 L38 65 Z" />
+          <rect x="22" y="66" width="56" height="12" rx="2" />
+          <circle cx="50" cy="72" r="5" fill="#FFFFFF" />
+          <path d="M28 80 C28 80, 36 94, 50 94 C64 94, 72 80, 72 80 Z" />
+          <rect x="20" y="96" width="60" height="5" rx="1.5" />
+        </svg>
+        <div class="dash-title-wrap">
+          <h1 class="dash-main-title">BhumiNexus</h1>
+          <p class="dash-hindi-subtitle">राष्ट्रीय भूमि अनुसंधान एवं नीति नवाचार मंच · National Land Research & Policy
+            Innovation Platform</p>
+          <p class="dash-ministry-title">Ministry of Rural Development & Department of Land Resources (DoLR), Government
+            of India</p>
+        </div>
+      </a>
+
+      <div class="dash-actions">
+        <a href="/" class="btn-manual-header">← Back to Overview</a>
+        <button class="btn-dash-signin"
+          onclick="alert('Jan Parichay Single Sign-On Gateway: Department Clearance Required')">Officer Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Solid Navy Navigation Tabs -->
+  <nav class="dash-nav-bar">
+    <div class="dash-nav-container">
+      <ul class="dash-nav-tabs">
+        <li class="dash-nav-item">
+          <a href="/" class="dash-tab-button">Home (Overview)</a>
+        </li>
+        <li class="dash-nav-item">
+          <a href="/land-repository.html" class="dash-tab-button">Land Repository</a>
+        </li>
+        <li class="dash-nav-item">
+          <a href="/api-documentation.html" class="dash-tab-button">API Documentation</a>
+        </li>
+        <li class="dash-nav-item">
+          <a href="/hackathons.html" class="dash-tab-button active">
+            Hackathon
+            <div class="dash-saffron-tab-line"></div>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-cloud-pill">
+        <span class="live-dot"></span>
+        <span>MeghRaj NIC Cloud: <strong>Active</strong></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 5. Main Content Area -->
+  <main class="hackathon-page-section">
+    <div class="simple-container">
+
+      <!-- Card: Exact Match to SIH 2026 Problem Statement Brief -->
+      <div class="sih-brief-card" id="sih-statement">
+        <div class="sih-brief-header">
+          <div class="badge-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+            <span>Smart India Hackathon 2026 · Official Submission</span>
+          </div>
+          <span class="problem-id-tag">Problem Statement: SIH26019</span>
+        </div>
+
+        <h2 class="sih-title">
+          BhumiNexus: National Land Research & Policy Innovation Platform
+        </h2>
+
+        <p class="sih-sub">
+          "A one-stop platform for discovering, joining, collaborating, submitting, and tracking land-governance
+          hackathons and innovations."
+        </p>
+
+        <div class="sih-specs-row">
+          <div class="spec-col">
+            <span class="spec-label">Nodal Ministry</span>
+            <span class="spec-val">Ministry of Rural Development</span>
+          </div>
+          <div class="spec-col">
+            <span class="spec-label">Department</span>
+            <span class="spec-val">Department of Land Resources (DoLR)</span>
+          </div>
+          <div class="spec-col">
+            <span class="spec-label">Competition Theme</span>
+            <span class="spec-val">Smart Automation / AI & Web GIS</span>
+          </div>
+          <div class="spec-col">
+            <span class="spec-label">Evaluation Stage</span>
+            <span class="spec-val">Grand Finale Submission</span>
+          </div>
+        </div>
+
+        <div class="sih-deliverables-box">
+          <h4>Key Evaluator Scoring Deliverables:</h4>
+          <div class="deliverables-grid">
+            <div class="deliv-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Zero AI Hallucination:</strong> Grounded RAG strictly cites DILRMP policy frameworks and
+                circulars.</div>
+            </div>
+            <div class="deliv-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Empirical Spatial Correlation:</strong> Proves dispute decline mathematically across 766
+                districts.</div>
+            </div>
+            <div class="deliv-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Evidence-Based Policy Simulator:</strong> "What-if" sandbox forecasts budget savings before
+                rollout.</div>
+            </div>
+            <div class="deliv-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>GIGW 3.0 & Data Sovereignty:</strong> Standardized, bilingual, accessible Indian Government
+                design.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Running Government Hackathons Section (Requested Hackathons) -->
+      <div class="running-hackathons-box" id="running-hackathons">
+        <div class="running-header-lockup">
+          <div class="running-pill">
+            <span class="running-dot"></span>
+            <span>National Innovation Gateway · Active Hackathons</span>
+          </div>
+          <h3 class="running-title">Active & Running Government Hackathons</h3>
+          <p class="running-desc">
+            Discover, join, collaborate, and track ongoing national innovation challenges managed by central ministries
+            and premier technology institutions.
+          </p>
+        </div>
+
+        <div class="hackathon-grid">
+
+          <!-- 1. UIDAI Data Hackathon -->
+          <div class="hackathon-card">
+            <div>
+              <div class="hackathon-card-top">
+                <span class="hackathon-ministry-badge">MeitY · UIDAI</span>
+                <span class="hackathon-status-live">● Submissions Active</span>
+              </div>
+              <h3>UIDAI Data Hackathon</h3>
+              <p class="hackathon-text">
+                Organized by the Unique Identification Authority of India (UIDAI) under MeitY, this challenge focuses on
+                advanced data analytics, identity verification solutions, and security innovations using ecosystem
+                datasets.
+              </p>
+              <div class="hackathon-highlights-row">
+                <span class="highlight-pill gold">Aadhaar Data Ecosystem</span>
+                <span class="highlight-pill">Advanced Data Analytics</span>
+                <span class="highlight-pill">Identity Verification</span>
+                <span class="highlight-pill">Zero-Knowledge Proofs</span>
+              </div>
+            </div>
+            <div class="hackathon-card-footer">
+              <span class="source-tag">Source: Official UIDAI / LinkedIn</span>
+              <button class="btn-hackathon-action"
+                onclick="alert('UIDAI Data Hackathon: Redirecting to official challenge guidelines & registration portal.')">
+                <span>Explore Challenge Brief ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. 5G Innovation Hackathon -->
+          <div class="hackathon-card">
+            <div>
+              <div class="hackathon-card-top">
+                <span class="hackathon-ministry-badge">Dept of Telecommunications (DoT)</span>
+                <span class="hackathon-status-live">● ₹10L+ Prize Pool</span>
+              </div>
+              <h3>5G Innovation Hackathon</h3>
+              <p class="hackathon-text">
+                Launched by the Department of Telecommunications (DoT) to build indigenous 5G, IoT, AI, and network
+                security solutions. It features prize pools exceeding ₹10 lakh alongside lab access and IPR support.
+              </p>
+              <div class="hackathon-highlights-row">
+                <span class="highlight-pill gold">₹10 Lakh+ Cash Awards</span>
+                <span class="highlight-pill">Indigenous 5G & IoT</span>
+                <span class="highlight-pill">Telecom Lab Access</span>
+                <span class="highlight-pill">Patent / IPR Support</span>
+              </div>
+            </div>
+            <div class="hackathon-card-footer">
+              <span class="source-tag">Source: Press Information Bureau (PIB)</span>
+              <button class="btn-hackathon-action"
+                onclick="alert('5G Innovation Hackathon: Redirecting to DoT portal & testbed guidelines.')">
+                <span>Explore Challenge Brief ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. eRaksha Cybersecurity Hackathon -->
+          <div class="hackathon-card">
+            <div>
+              <div class="hackathon-card-top">
+                <span class="hackathon-ministry-badge">NCIIPC & C3iHub IIT Kanpur</span>
+                <span class="hackathon-status-live">● National Defense Track</span>
+              </div>
+              <h3>eRaksha Cybersecurity Hackathon</h3>
+              <p class="hackathon-text">
+                Focused on critical infrastructure protection, threat intelligence, and national security challenges,
+                often coordinated via specialized institutions like C3iHub at IIT Kanpur.
+              </p>
+              <div class="hackathon-highlights-row">
+                <span class="highlight-pill gold">IIT Kanpur Incubation</span>
+                <span class="highlight-pill">Critical Infrastructure (SCADA)</span>
+                <span class="highlight-pill">Threat Intelligence</span>
+                <span class="highlight-pill">Defense Deployment</span>
+              </div>
+            </div>
+            <div class="hackathon-card-footer">
+              <span class="source-tag">Source: C3iHub / Cyber Security Cell</span>
+              <button class="btn-hackathon-action"
+                onclick="alert('eRaksha Hackathon: Accessing problem statements & defense cyber tracks.')">
+                <span>Explore Challenge Brief ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Smart Cities Mission Hackathons -->
+          <div class="hackathon-card">
+            <div>
+              <div class="hackathon-card-top">
+                <span class="hackathon-ministry-badge">MoHUA · Smart Cities Mission</span>
+                <span class="hackathon-status-live">● Open Urban Cohort</span>
+              </div>
+              <h3>Smart Cities Mission Hackathons</h3>
+              <p class="hackathon-text">
+                Periodic urban-centric hackathons managed by the Ministry of Housing and Urban Affairs (MoHUA) inviting
+                developers to solve urban mobility, waste management, and civic governance issues.
+              </p>
+              <div class="hackathon-highlights-row">
+                <span class="highlight-pill gold">City Innovation Exchange (CIX)</span>
+                <span class="highlight-pill">Urban Mobility & GIS</span>
+                <span class="highlight-pill">Solid Waste Management</span>
+                <span class="highlight-pill">Civic Governance APIs</span>
+              </div>
+            </div>
+            <div class="hackathon-card-footer">
+              <span class="source-tag">Source: MoHUA / Smart Cities India</span>
+              <button class="btn-hackathon-action"
+                onclick="alert('Smart Cities Hackathons: Viewing open municipal challenge tracks & city sandbox APIs.')">
+                <span>Explore Challenge Brief ↗</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Ecosystem Integration Card -->
+      <div class="ecosystem-section-card">
+        <h3>🏛️ The DoLR Ecosystem: Connecting Related SIH Problem Statements</h3>
+        <p class="lead">
+          BhumiNexus operates as the centralized analytical intelligence engine synthesizing data streams from other
+          Department of Land Resources hackathons:
+        </p>
+
+        <div class="pipeline-grid">
+          <div class="pipeline-card">
+            <span class="pipeline-tag">SIH26018</span>
+            <h4>Legacy Record OCR</h4>
+            <p>Extracts & structures historical cadastral patta registers into standardized database tables.</p>
+            <span class="pipeline-feed">↓ Clean Structured Records</span>
+          </div>
+
+          <div class="pipeline-card">
+            <span class="pipeline-tag">SIH26016</span>
+            <h4>Acquisition SLA Tracker</h4>
+            <p>Monitors compensation disbursement timelines, project bottlenecks, and civil tribunal stay orders.</p>
+            <span class="pipeline-feed">↓ Real-Time SLA Logs</span>
+          </div>
+
+          <div class="pipeline-card">
+            <span class="pipeline-tag">SIH26015</span>
+            <h4>SRISHTI Satellite Platform</h4>
+            <p>Delivers multi-spectral satellite imagery for terrain contours, watershed analysis, and parcel
+              boundaries.</p>
+            <span class="pipeline-feed">↓ Geospatial Overlays</span>
+          </div>
+        </div>
+
+        <div class="pipeline-core-box">
+          <span class="core-pill">Central Solution · BhumiNexus (SIH26019)</span>
+          <h4>National Land Research & Policy Innovation Platform</h4>
+          <p>
+            Harmonizes incoming data streams into AI Semantic Policy Discovery (RAG), GIS Dispute Correlation Heatmaps,
+            and ML Impact Simulations for evidence-backed land administration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Platform Actions -->
+      <div class="quick-nav-row">
+        <a href="/land-repository.html" class="btn-quick-primary">
+          <span>Explore National Land Repository →</span>
+        </a>
+        <a href="/api-documentation.html" class="btn-quick-secondary">
+          <span>Inspect REST API Documentation →</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 7. Official Footer (Pure White Text on Dark Navy) -->
+  <footer class="gov-official-footer">
+    <div class="gov-tricolor-bar">
+      <div class="stripe-saffron"></div>
+      <div class="stripe-white"></div>
+      <div class="stripe-green"></div>
+    </div>
+
+    <div class="footer-top-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-brand-title">BhumiNexus (भूमि नेक्सस)</h3>
+          <p class="footer-brand-sub">
+            National Digital Platform for Research, Policy Innovation, and Evidence-Based Land Governance.
+            Submitted for <strong>Smart India Hackathon 2026</strong> under Problem Statement <strong>SIH26019</strong>.
+          </p>
+          <div class="sih-team-badge">Developed by Team NERO · Theme: Smart Automation</div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Platform Portals</h4>
+          <ul class="footer-link-list">
+            <li><a href="/">Home (Overview)</a></li>
+            <li><a href="/land-repository.html">National Land Repository</a></li>
+            <li><a href="/api-documentation.html">REST API Documentation</a></li>
+            <li><a href="/hackathons.html">Hackathon</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">DoLR Ecosystem</h4>
+          <ul class="footer-link-list">
+            <li><a href="/hackathons.html#sih-statement">SIH26019 Problem Overview</a></li>
+            <li><a href="/hackathons.html">SIH26018 (Legacy OCR Pipeline)</a></li>
+            <li><a href="/hackathons.html">SIH26016 (Acquisition SLA Tracker)</a></li>
+            <li><a href="/hackathons.html">Evaluator Assessment Rubric</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Nodal Authority</h4>
+          <div class="footer-contact-info">
+            <p class="contact-item">Department of Land Resources (DoLR), NBO Building, Nirman Bhawan, New Delhi - 110011
+            </p>
+            <p class="contact-item">bhuminexus-sih@dolr.gov.in</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="footer-bottom-container">
+        <p>Designed & Built by <strong>Team NERO</strong> for <strong>Smart India Hackathon 2026</strong>. Technical
+          standards aligned with <strong>National Informatics Centre (NIC) & GIGW 3.0</strong>.</p>
+        <span>Last updated: <strong>26 Sep 2026</strong></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

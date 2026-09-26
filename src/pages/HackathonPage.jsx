@@ -9,6 +9,41 @@ export function HackathonPage({ onNavigate }) {
     { label: 'Development Team', val: 'Team NERO', sub: 'SIH 2026 Grand Finalist' },
   ];
 
+  const runningHackathons = [
+    {
+      ministry: 'MeitY · UIDAI',
+      status: 'Submissions Active',
+      title: 'UIDAI Data Hackathon',
+      desc: 'Organized by the Unique Identification Authority of India (UIDAI) under MeitY, this challenge focuses on advanced data analytics, identity verification solutions, and security innovations using ecosystem datasets.',
+      highlights: ['Aadhaar Data Ecosystem', 'Advanced Data Analytics', 'Identity Verification', 'Security Innovations'],
+      source: 'Official UIDAI / LinkedIn'
+    },
+    {
+      ministry: 'Dept of Telecommunications (DoT)',
+      status: '₹10L+ Prize Pool',
+      title: '5G Innovation Hackathon',
+      desc: 'Launched by the Department of Telecommunications (DoT) to build indigenous 5G, IoT, AI, and network security solutions. It features prize pools exceeding ₹10 lakh alongside lab access and IPR support.',
+      highlights: ['₹10 Lakh+ Cash Awards', 'Indigenous 5G & IoT', 'Telecom Lab Access', 'IPR Support'],
+      source: 'PIB Press Release'
+    },
+    {
+      ministry: 'NCIIPC & C3iHub IIT Kanpur',
+      status: 'National Defense Track',
+      title: 'eRaksha Cybersecurity Hackathon',
+      desc: 'Focused on critical infrastructure protection, threat intelligence, and national security challenges, often coordinated via specialized institutions like C3iHub at IIT Kanpur.',
+      highlights: ['IIT Kanpur Incubation', 'Critical Infrastructure', 'Threat Intelligence', 'Defense Cyber'],
+      source: 'C3iHub IIT Kanpur'
+    },
+    {
+      ministry: 'MoHUA · Smart Cities Mission',
+      status: 'Open Urban Cohort',
+      title: 'Smart Cities Mission Hackathons',
+      desc: 'Periodic urban-centric hackathons managed by the Ministry of Housing and Urban Affairs (MoHUA) inviting developers to solve urban mobility, waste management, and civic governance issues.',
+      highlights: ['City Innovation Exchange', 'Urban Mobility & GIS', 'Waste Management', 'Civic Governance'],
+      source: 'MoHUA / Smart Cities India'
+    }
+  ];
+
   return (
     <div className="page-view hackathon-page animate-fade-in">
       <div className="hackathon-page-container">
@@ -127,6 +162,46 @@ export function HackathonPage({ onNavigate }) {
           </div>
         </div>
 
+        {/* Running Government Hackathons */}
+        <div className="running-hackathons-box">
+          <div className="running-header-lockup">
+            <span className="running-pill">
+              <span className="running-dot" />
+              <span>National Innovation Gateway · Active Hackathons</span>
+            </span>
+            <h3 className="running-title">Active & Running Government Hackathons</h3>
+            <p className="running-desc">
+              Discover, join, collaborate, and track ongoing national innovation challenges managed by central ministries.
+            </p>
+          </div>
+
+          <div className="hackathon-grid">
+            {runningHackathons.map((h, i) => (
+              <div key={i} className="hackathon-card">
+                <div>
+                  <div className="hackathon-card-top">
+                    <span className="hackathon-ministry-badge">{h.ministry}</span>
+                    <span className="hackathon-status-live">● {h.status}</span>
+                  </div>
+                  <h3>{h.title}</h3>
+                  <p className="hackathon-text">{h.desc}</p>
+                  <div className="hackathon-highlights-row">
+                    {h.highlights.map((tag, tIdx) => (
+                      <span key={tIdx} className={`highlight-pill ${tIdx === 0 ? 'gold' : ''}`}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="hackathon-card-footer">
+                  <span className="source-tag">Source: {h.source}</span>
+                  <a href="/hackathons.html" className="btn-hackathon-action">
+                    <span>Explore Challenge Brief ↗</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Navigation Prompt */}
         <div className="sih-bottom-actions">
           <button className="btn-sih-action" onClick={() => onNavigate('dashboard')}>
@@ -134,10 +209,10 @@ export function HackathonPage({ onNavigate }) {
             <ArrowRight size={16} />
           </button>
 
-          <button className="btn-sih-secondary" onClick={() => onNavigate('api')}>
-            <span>Inspect REST API Endpoints</span>
+          <a href="/land-repository.html" className="btn-sih-secondary">
+            <span>Explore Land Repository</span>
             <ArrowRight size={16} />
-          </button>
+          </a>
         </div>
 
       </div>

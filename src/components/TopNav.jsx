@@ -15,7 +15,7 @@ export function TopNav({
     { id: 'home', label: 'Home (Overview)' },
     { id: 'repository', label: 'Land Repository' },
     { id: 'api', label: 'API Documentation' },
-    { id: 'hackathon', label: 'SIH 2026 Information' }
+    { id: 'hackathon', label: 'Hackathon' }
   ];
 
   const handleTabClick = (tab) => {
@@ -43,21 +43,21 @@ export function TopNav({
           <div className="dash-utility-right">
             {/* Font Scalers */}
             <div className="font-scales-group">
-              <button 
+              <button
                 className={`scaler-btn ${fontScale === 'sm' ? 'active' : ''}`}
                 onClick={() => setFontScale('sm')}
                 title="Small Font"
               >
                 A-
               </button>
-              <button 
+              <button
                 className={`scaler-btn ${fontScale === 'md' ? 'active' : ''}`}
                 onClick={() => setFontScale('md')}
                 title="Standard Font"
               >
                 A
               </button>
-              <button 
+              <button
                 className={`scaler-btn ${fontScale === 'lg' ? 'active' : ''}`}
                 onClick={() => setFontScale('lg')}
                 title="Large Font"
@@ -70,14 +70,14 @@ export function TopNav({
 
             {/* Language Selection */}
             <div className="lang-group">
-              <button 
+              <button
                 className={`lang-link ${currentLang === 'hi' ? 'active' : ''}`}
                 onClick={() => setCurrentLang('hi')}
               >
                 हिन्दी
               </button>
               <span className="pipe">|</span>
-              <button 
+              <button
                 className={`lang-link ${currentLang === 'en' ? 'active' : ''}`}
                 onClick={() => setCurrentLang('en')}
               >
@@ -91,7 +91,7 @@ export function TopNav({
       {/* 3. Official Platform Header with National Emblem (Image 1 Style) */}
       <div className="dash-official-header">
         <div className="dash-header-container">
-          
+
           {/* Emblem & Branding */}
           <div className="dash-brand" onClick={() => onNavigate('home')} role="button" tabIndex={0}>
             <NationalEmblem size={44} className="emblem-svg" />
@@ -169,19 +169,10 @@ export function TopNav({
 
             <li className="dash-nav-item">
               <a
-                href="#hackathons"
+                href="/hackathons.html"
                 className="dash-tab-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (activePage !== 'home') {
-                    onNavigate('home');
-                  }
-                  setTimeout(() => {
-                    document.getElementById('hackathons')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
               >
-                SIH 2026 Information
+                Hackathon
               </a>
             </li>
           </ul>
